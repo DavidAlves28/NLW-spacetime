@@ -7,7 +7,7 @@ import { authRoutes } from "./routes/auth";
 const app = fastify();
 
 app.register(cors, {
-  origin: ["http://localhost:3333"],
+  origin: true,
 });
 
 app.register(memoriesRoutes);
@@ -18,6 +18,7 @@ app.register(jwt, {
 app
   .listen({
     port: 3333,
+    host: "0.0.0.0",
   })
   .then(() => {
     console.log("HTTP servidor rodando http://localhost:3333");

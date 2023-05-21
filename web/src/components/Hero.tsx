@@ -1,5 +1,6 @@
 import Image from "next/image";
 import nlwlogo from "../assets/nlw-logo.svg";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -14,13 +15,13 @@ export default function Hero() {
           com o mundo!
         </p>
       </div>
-      <a
-        href=""
-        className="inline-block  rounded-full bg-green-500 px-5 py-3 font-title uppercase leading-none text-black hover:bg-green-600 "
+      <Link
+        href="/memories/new"
+        className="inline-block  rounded-full bg-green-500 px-5 py-3 font-bold font-alt uppercase leading-none text-black hover:bg-green-600 "
       >
  
         CADASTRAR LEMBRANÇA
-      </a>
+      </Link>
     </div>
   );
 }
