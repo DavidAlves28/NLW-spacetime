@@ -1,7 +1,9 @@
 import { getUser } from "@/lib/auth";
-
 import Image from "next/image";
+
 export default function Profile() {
+  // Componente: Retorna informações do perfil do  Github Logado.
+
   const { name, avatarUrl } = getUser();
   return (
     <div className="flex items-center gap-3 text-left ">

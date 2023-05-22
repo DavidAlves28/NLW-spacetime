@@ -1,14 +1,19 @@
 "use client";
 
 import React, { ChangeEvent, useState } from "react";
-
+// Componente para realizar um preview de imagem selecionada.
 export default function MediaPicker() {
+
   const [preview, setPreview] = useState<string | null>(null);
+
   function onFileSelect(event: ChangeEvent<HTMLInputElement>) {
+
     const { files } = event.target;
     if (!files) {
       return;
     }
+    // se houver arquivo selecionado
+    // criar objeto na primeira com a primeira possição, que será sempre o selecionado.
     const previewURL = URL.createObjectURL(files[0]);
     setPreview(previewURL);
   }

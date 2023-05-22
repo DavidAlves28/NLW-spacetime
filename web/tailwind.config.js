@@ -50,19 +50,30 @@ module.exports = {
         },
       },
       backgroundImage: {
-        stripes: "linear-gradient(to bottom, rgba(255,255,255,0.1),rgba(255,255,255,0.1) 12.5%, transparent 12.5%, transparent)",
+        stripes:
+          "linear-gradient(to bottom, rgba(255,255,255,0.1),rgba(255,255,255,0.1) 12.5%, transparent 12.5%, transparent)",
       },
       backgroundSize: {
         stripes: "100% 8px",
       },
-      fontSize:{
-        '5xl':'2.5rem',
+      fontSize: {
+        "5xl": "2.5rem",
       },
 
       blur: {
         full: "194px",
       },
     },
+    screens: {
+      mobile: { min: "380px", max: "766px" },
+      // => @media (min-width: 640px and max-width: 767px) { ... }
+
+      tablet: { min: "767px", max: "1023px" },
+      // => @media (min-width: 768px and max-width: 1023px) { ... }
+
+      desktop: { min: "1024px" },
+      // => @media (min-width: 1024px) { .
+    },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require("@tailwindcss/forms")],
 };

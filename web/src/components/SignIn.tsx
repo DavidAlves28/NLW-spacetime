@@ -1,6 +1,8 @@
 import { User } from "lucide-react";
 
 export default function SignIn() {
+
+  // Componente para criar a conta no Github ou acessa-la.
   return (
     <a
       href={`https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID}`}

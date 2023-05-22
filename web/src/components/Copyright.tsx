@@ -1,4 +1,5 @@
 export default function Copyright() {
+  // Componente para ir a página da Rocketseat.
   return (
     <div className="text-sm leading-relaxed text-gray-200">
       Feito com 💜 no NLW da{" "}

@@ -8,19 +8,33 @@ import { api } from "@/lib/api";
 import { useRouter } from "next/navigation";
 
 export default function NewMemoryForm() {
-    const router = useRouter()
+
+  // Componente de criação de memória, coletando dados do form.
+  const router = useRouter();
+  
+  // função que observa os estados do form , 
   async function handleCreateMemory(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const fileToUpload = formData.get("CoverURL");
+      
+    const formData = new FormData(event.currentTarget) // Cria Objeto FormaData e atribui evento que observa o estado atual.
+    const fileToUpload = formData.get("CoverURL") // pega 'CoverURL" = image selecionada pelo usuário.
+
     let coverUrl = "";
+    // se existir arquivo selecionado
+    // criar objeto FormData
+    // atribuir 'file' o arquivo selecionado.
+    // criar dados na api.
+    // e atribuir valor a variavel com dados da api. 
     if (fileToUpload) {
       const uploadFormData = new FormData();
       uploadFormData.set("file", fileToUpload);
       const uploadResponse = await api.post("/upload", uploadFormData);
       coverUrl = uploadResponse.data.fileUrl;
     }
+
+    // ler 'token' de usuário
     const token = Cookie.get("token");
+    // criar nova memoria.
     await api.post(
       "/memories",
       {
@@ -34,7 +48,9 @@ export default function NewMemoryForm() {
         },
       }
     );
-    router.push('/')
+
+    // retorna a página principal 
+    router.push("/");
   }
 
   return (

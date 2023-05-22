@@ -34,12 +34,15 @@ export default function RootLayout({
       <body
         className={`${roboto.variable}${baiJamjure.variable}font-sans bg-gray-900 text-gray-100 `}
       >
-        <main className="grid grid-cols-2 min-h-screen ">
+        <main className="desktop:grid grid-cols-2 min-h-screen ">
           {/* Direita */}
           <div
-            className="flex items-start flex-col
-      bg-[url(../assets/bg-stars.svg)] bg-cover
-      justify-between px-28 py-16  overflow-hidden border-r border-white/10  relative"
+          className="flex items-start flex-col
+          bg-[url(../assets/bg-stars.svg)] bg-cover
+          justify-between px-28 py-16  overflow-hidden border-r border-white/10  relative
+          
+          tablet:px-10 tablet:py-10 tablet:gap-3
+          mobile:gap-4 mobile:px-3 mobile:py-3 mobile:w-full"
           >
             {/*Blur */}
             <div className="absolute right-0 top-1/2 h-[288px] w-[526px] -translate-y-1/2  translate-x-1/2  bg-purple-700  rounded-full  opacity-50 blur-full " />
@@ -51,7 +54,7 @@ export default function RootLayout({
             <Copyright />
           </div>
           {/* Section Esquerda */}
-          <div className="flex flex-col p-16 bg-[url(../assets/bg-stars.svg)] bg-cover">
+          <div className="flex max-h-screen overflow-y-scroll flex-col bg-[url(../assets/bg-stars.svg)] bg-cover">
             {children}
           </div>
         </main>
