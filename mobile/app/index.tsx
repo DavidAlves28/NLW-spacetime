@@ -30,30 +30,27 @@ export default function App() {
   );
   async function handleGithubAuto(code: string) {
     try {
-      const response = await api.post("/register", { code })
-      const { token } = response.data
-      await SecureStore.setItemAsync("token", token)
+      const response = await api.post("/register", { code });
+      const { token } = response.data;
+      await SecureStore.setItemAsync("token", token);
       router.push("/memories");
-    }catch(error){
-    console.log(error);
+    } catch (error) {
+      console.log(error);
     }
-   
   }
   useEffect(() => {
     // retorna o http para ser usado no callback do github para autenticação!
     // console.log(
-    //     'response',
-    //     makeRedirectUri({
-    //       scheme: 'nlwspacetime',
-    //     }),
-    //   )
+    //   "response",
+    //   makeRedirectUri({
+    //     scheme: "nlwspacetime",
+    //   })
+    // );
     if (response?.type === "success") {
       const { code } = response.params;
 
-    handleGithubAuto(code) 
-
-      
-    } 
+      handleGithubAuto(code);
+    }
   }, [response]);
 
   return (
